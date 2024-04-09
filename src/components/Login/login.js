@@ -44,20 +44,24 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const username = 'effigo@global.com';
-    const enteredPassword = '222';
-
-    if (email === username && password === enteredPassword) {
+    const username1 = 'effigo@global.com';
+    const username2 = 'hat2';
+    const enteredPassword1 = '222';
+    const enteredPassword2 = 'hat2';
+  
+    const isValidCredentials =
+      (email === username1 || email === username2) &&
+      (password === enteredPassword1 || password === enteredPassword2);
+  
+    if (isValidCredentials) {
       ls.set('authenticated', true);
-      alert("success")
-      Navigate("/")
+    //   alert("Success");
+      Navigate("/");
       window.location.reload();
     } else {
       alert('Invalid credentials');
-
     }
   };
-
   return (
     <ThemeProvider theme={theme}>
       <Box
