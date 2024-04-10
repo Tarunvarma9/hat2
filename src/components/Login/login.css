@@ -19,3 +19,23 @@
     padding: 16.5px 14px;
     padding-left: 10px !important;
 }
+
+
+.css-xhud73 {
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentcolor;
+    border: 0px;
+    box-sizing: content-box;
+    background: none;
+    height: 1.4375em;
+    margin: 0px;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0px;
+    width: 100%;
+    animation-name: mui-auto-fill-cancel;
+    animation-duration: 10ms;
+    padding: 16.5px 14px 16.5px 0px;
+    padding-left: 10px !important;
+}
