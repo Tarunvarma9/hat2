@@ -55,13 +55,13 @@ const LoginPage = () => {
     const enteredPassword1 = '222';
     const enteredPassword2 = 'hat2';
     const isValidCredentials =
-      (email === username1 || email === username2) &&
+      (email.toLocaleLowerCase() === username1 || email.toLocaleLowerCase() === username2) &&
       (password === enteredPassword1 || password === enteredPassword2);
     if (isValidCredentials) {
       dispatch(loginUser());
-      dispatch(addLogin(email));
+      dispatch(addLogin(email.toLocaleLowerCase()));
       ls.set('authenticated', true);
-      ls.set("email", email);
+      ls.set("email", email.toLocaleLowerCase());
       window.location.reload();
     } else {
       alert('Invalid credentials');
