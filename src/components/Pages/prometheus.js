@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,6 +25,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const Navigate = useNavigate();
+    const [videoKey, setVideoKey] = useState(0);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -50,6 +51,12 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
     //   const handleHome = () => {
     //     Navigate('/');
     //   };
+
+    const handleForceRerender = () => {
+        // Increment the video key to force a re-render
+        setVideoKey(prevKey => prevKey + 1);
+    };
+
 
     const getClickHandler = (item) => {
         switch (item) {
@@ -136,9 +143,13 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
             </Box>
            <div style={{background:"#000"}}>
+           <Button style={{color:"#fff", fontSize:"12px", border:"1px solid #ccc"}} onClick={handleForceRerender} >
+                Force Re-render
+            </Button>
            <ReactPlayer
                 url="/assets/Prometheus.mp4"
-                controls={false}
+                key={videoKey}
+                controls={true}
                 playing={true}
                 loop={true}
                 width="100%"

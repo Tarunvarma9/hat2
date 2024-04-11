@@ -16,7 +16,7 @@ import ReactPlayer from 'react-player';
 import { TextField } from '@mui/material';
 import { connect } from 'react-redux';
 import { Home } from '@mui/icons-material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { addLogin } from './store';
 
 
@@ -35,6 +35,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const [login,setLogin]= React.useState(false)
+    const [videoKey, setVideoKey] = useState(0);
 
     useEffect(() => {
         const isAuthenticated = ls.get('authenticated');
@@ -91,6 +92,10 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
     );
 
 
+    const handleForceRerender = () => {
+        // Increment the video key to force a re-render
+        setVideoKey(prevKey => prevKey + 1);
+    };
 
     return (
         <>
@@ -137,16 +142,24 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
                 </Drawer>
 
             </Box>
+            
            
-                {email === "hat2" ?( <div style={{background:"#000"}}><ReactPlayer
+                {email === "hat2" ?(<> 
+                
+                <div style={{background:"#000"}}>
+                <Button style={{color:"#fff", fontSize:"12px", border:"1px solid #ccc"}} onClick={handleForceRerender} >
+                Force Re-render
+            </Button>
+                    <ReactPlayer
                     url="/assets/sunflower.mp4"
-                    controls={false}
+                    key={videoKey}
+                    controls={true}
                     playing={true}
                     loop={true}
                     width="100%"
                     height="80vh"
                     style={{ marginTop: "3%" }}
-                /></div>):(<>{<Typography variant="body1" gutterBottom style={{textAlign: 'center'}}>
+                /></div></>):(<>{<Typography variant="body1" gutterBottom style={{textAlign: 'center'}}>
                    ERR CODE- NA + Type: Permission ++ * Home Page * :<br/>
                   User- <b style={{marginTop:"20px", fontFamily:"Poppins", color:"royalblue"}}>{`"${email}"`}</b>
                     </Typography>}</>)}
