@@ -18,6 +18,9 @@ import { connect } from 'react-redux';
 import { Home } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import { addLogin } from './store';
+import Navbar from './Navbar';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const navItems = ['Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
@@ -43,107 +46,20 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
           navigate("/login");
         }
       }, [navigate]); 
-      
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
-
-
-    const getClickHandler = (item) => {
-        switch (item) {
-            case 'Hello Monday':
-                return () => navigate('/hellomonday');
-            case 'Prometheus Fuels':
-                return () => navigate('/prometheus');
-            case 'Redwood Empire':
-                return () => navigate('/redwood');
-            case 'Log Out':
-                return () => {
-                    ls.remove('authenticated');
-                    navigate('/login');
-                    window.location.reload();
-                };
-            default:
-                return () => navigate('/');
-        }
-    };
-    console.log("isLoggedIn:", isLoggedIn);
-    console.log("rememberMe:", rememberMe);
-    console.log("loginCount:", loginCount);
-    console.log("rememberCount:", rememberCount);
-    console.log('addLogin', logins);
-
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(https://s3-alpha-sig.figma.com/img/567f/649b/b308c233645385a9c299e4c895c08787?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ro6l2~X7NDl0ApHJLT9j3vXtGuaEpTRTQ9y3NpfJQbDbP~HXSH0V85IXCoZRm2TK5Jeohdv50U4QVAFPEennh0k1tC9gL~TUjMIcXyE-84cLqUNlrQCQFkYzC3XkAcevNs4OIPs6uYgtUCEONVtX8WIn~GBAFUQQocesCVHzeSEawdy1vO3lyEhFR09V0LWShjShlAo6ZlzomqHi1PaKyh4WGItO2i5fgto4BTUVjuJSLMrCG5XvvdCuweC0Z27UuOi2sQ3MrixIt~IjOclacuq3AYAiVegHNcuRLBQZs78DFN36QiMihhRvCPM3VTHw0V-4i68vA06kxn0H7AUuFQ__)',width:"100%", height: "100%" }}>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginTop: "150px", marginBottom: "50px" }}>
-                <img
-                    onClick={() => navigate('/')}
-                    src="https://s3-alpha-sig.figma.com/img/9455/b753/959d2df4e7b3b977e33f6e5111a76887?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bDwYXsMhEdr2RUzi62naXC1TKJ9sf1jPLLu4oWNT5p-gObhfvc84XqGxCQOC46vDaHtJ5mRnRRWJk2AypJ0Q~mAmeuimp4xL78LRvAjREQPRfNZMELxnD5kr3uKktdF3jj8Cn3-wveacEIA2BNG6jRtlq8Nxppk5rg6xbRuFlhQgOgk5HnESZWk5ci0RwV3sezOHJO4FRXEGBxa1by9BmQNmkF6ap6LR1ZrRK93Y95ciRsITBrn-7doRziKG7Muygb7OT86boKoIDaVdsaLgiMityaqPaTgNSCUZTFWVhz205Cc7m1DbpYhSbXLvmZ~yBBScozrvKuirUbBJRFAomQ__"
-                    alt="EffiGO Logo"
-                    style={{ width: 100, height: 'auto', cursor: 'pointer' }}
-                />
-            </Typography>
-            {navItems.map((item) => (
-                <Button key={item} sx={{ width: '100%', color: "#ccc" }} onClick={getClickHandler(item)}>
-                    {item}
-                </Button>
-            ))}
-        </Box>
-    );
-
-
-    const handleForceRerender = () => {
+      const handleForceRerender = () => {
         // Increment the video key to force a re-render
         setVideoKey(prevKey => prevKey + 1);
     };
 
+    const handleButtonClick = () => {
+        toast.success('Try username/password === "hat2"', {
+            position: 'top-center'
+        });
+    };
+
     return (
         <>
-            <Box sx={{ display: 'flex' }}>
-                <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(https://s3-alpha-sig.figma.com/img/567f/649b/b308c233645385a9c299e4c895c08787?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ro6l2~X7NDl0ApHJLT9j3vXtGuaEpTRTQ9y3NpfJQbDbP~HXSH0V85IXCoZRm2TK5Jeohdv50U4QVAFPEennh0k1tC9gL~TUjMIcXyE-84cLqUNlrQCQFkYzC3XkAcevNs4OIPs6uYgtUCEONVtX8WIn~GBAFUQQocesCVHzeSEawdy1vO3lyEhFR09V0LWShjShlAo6ZlzomqHi1PaKyh4WGItO2i5fgto4BTUVjuJSLMrCG5XvvdCuweC0Z27UuOi2sQ3MrixIt~IjOclacuq3AYAiVegHNcuRLBQZs78DFN36QiMihhRvCPM3VTHw0V-4i68vA06kxn0H7AUuFQ__)' }}>
-                    <Toolbar>
-                        {isSmallScreen && (
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                edge="start"
-                                onClick={handleDrawerToggle}
-                                sx={{ mr: 2 }}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        )}
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            <img
-                             onClick={() => navigate('/')}
-                                src="https://s3-alpha-sig.figma.com/img/9455/b753/959d2df4e7b3b977e33f6e5111a76887?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bDwYXsMhEdr2RUzi62naXC1TKJ9sf1jPLLu4oWNT5p-gObhfvc84XqGxCQOC46vDaHtJ5mRnRRWJk2AypJ0Q~mAmeuimp4xL78LRvAjREQPRfNZMELxnD5kr3uKktdF3jj8Cn3-wveacEIA2BNG6jRtlq8Nxppk5rg6xbRuFlhQgOgk5HnESZWk5ci0RwV3sezOHJO4FRXEGBxa1by9BmQNmkF6ap6LR1ZrRK93Y95ciRsITBrn-7doRziKG7Muygb7OT86boKoIDaVdsaLgiMityaqPaTgNSCUZTFWVhz205Cc7m1DbpYhSbXLvmZ~yBBScozrvKuirUbBJRFAomQ__"
-                                alt="EffiGO Logo"
-                                style={{ width: 100, height: 'auto', cursor: 'pointer' }}
-                            />
-                        </Typography>
-                        {!isSmallScreen && (
-                            <Box sx={{ display: 'flex', gap: 2 }}>
-                                {navItems.map((item) => (
-                                    <Button key={item} style={{ color: "#fff" }} onClick={getClickHandler(item)}>
-                                        {item}
-                                    </Button>
-                                ))}
-                            </Box>
-                        )}
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    anchor="left"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    sx={{ display: { xs: 'block', sm: 'none' } }}
-                >
-                    {drawer}
-                </Drawer>
-
-            </Box>
-            
-           
+        <Navbar/>
                 {email === "hat2" ?(<> 
                 
                 <div style={{background:"#000"}}>
@@ -159,10 +75,25 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
                     width="100%"
                     height="80vh"
                     style={{ marginTop: "3%" }}
-                /></div></>):(<>{<Typography variant="body1" gutterBottom style={{textAlign: 'center'}}>
-                   ERR CODE- NA + Type: Permission ++ * Home Page * :<br/>
-                  User- <b style={{marginTop:"20px", fontFamily:"Poppins", color:"royalblue"}}>{`"${email}"`}</b>
-                    </Typography>}</>)}
+                /></div></>): (
+                    <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "100%", border: "10px solid blue" }}>
+                        <Typography variant="body1" gutterBottom style={{ textAlign: 'center' }}>
+                            ERR CODE- NA + Type: Permission ++ * Home Page * :<br />
+                            User- <b style={{ marginTop: "20px", fontFamily: "Poppins", color: "royalblue" }}>{`"${email}"`}</b>
+                            <br/>
+                            <br/>
+                            <Button
+                            onClick={handleButtonClick}
+                            variant="contained"
+                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(https://s3-alpha-sig.figma.com/img/567f/649b/b308c233645385a9c299e4c895c08787?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ro6l2~X7NDl0ApHJLT9j3vXtGuaEpTRTQ9y3NpfJQbDbP~HXSH0V85IXCoZRm2TK5Jeohdv50U4QVAFPEennh0k1tC9gL~TUjMIcXyE-84cLqUNlrQCQFkYzC3XkAcevNs4OIPs6uYgtUCEONVtX8WIn~GBAFUQQocesCVHzeSEawdy1vO3lyEhFR09V0LWShjShlAo6ZlzomqHi1PaKyh4WGItO2i5fgto4BTUVjuJSLMrCG5XvvdCuweC0Z27UuOi2sQ3MrixIt~IjOclacuq3AYAiVegHNcuRLBQZs78DFN36QiMihhRvCPM3VTHw0V-4i68vA06kxn0H7AUuFQ__)', height:"25px" }}
+                        >
+                            Try
+                        </Button>
+                        </Typography>
+                       
+                    </div>
+                )}
+            <ToastContainer position="top-center" autoClose={5000} />
         </>
     );
 }

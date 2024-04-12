@@ -17,7 +17,7 @@ import { TextField } from '@mui/material';
 const navItems = ['Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
- function Redwood() {
+ function Navbar() {
     const navigate = useNavigate()
     const email = ls.get('email');
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -28,28 +28,6 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
-    //   const handleLogout = () => {
-    //     ls.remove('authenticated');
-    //     Navigate('/login');
-    //     window.location.reload();
-    //   };
-
-    //   const handleHelloMonday = () => {
-    //     Navigate('/hellomonday');
-    //   };
-
-    //   const handlePrometheus = () => {
-    //     Navigate('/prometheus');
-    //   };
-
-    //   const handleRedwood = () => {
-    //     Navigate('/redwood');
-    //   };
-
-    //   const handleHome = () => {
-    //     Navigate('/');
-    //   };
 
     const getClickHandler = (item) => {
         switch (item) {
@@ -68,11 +46,6 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
             default:
                 return () => Navigate('/');
         }
-    };
-
-    const handleForceRerender = () => {
-        // Increment the video key to force a re-render
-        setVideoKey(prevKey => prevKey + 1);
     };
 
     const drawer = (
@@ -140,23 +113,8 @@ return (
                 </Drawer>
 
             </Box>
-            <div style={{background:"#000"}}>
-            <Button style={{color:"#fff", fontSize:"12px", border:"1px solid #ccc"}} onClick={handleForceRerender} >
-                Force Re-render
-            </Button>
-            <ReactPlayer
-                url="/assets/Redwood.mp4"
-                key={videoKey}
-                controls={true}
-                playing={true}
-                loop={true}
-                width="100%"
-                height="80vh"
-                style={{marginTop:"3%"}}
-            />
-            </div>
         </>
     );
 };
 
-export default Redwood;
+export default Navbar;
