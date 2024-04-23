@@ -85,7 +85,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
                             <Button
                             onClick={handleButtonClick}
                             variant="contained"
-                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(https://s3-alpha-sig.figma.com/img/567f/649b/b308c233645385a9c299e4c895c08787?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Ro6l2~X7NDl0ApHJLT9j3vXtGuaEpTRTQ9y3NpfJQbDbP~HXSH0V85IXCoZRm2TK5Jeohdv50U4QVAFPEennh0k1tC9gL~TUjMIcXyE-84cLqUNlrQCQFkYzC3XkAcevNs4OIPs6uYgtUCEONVtX8WIn~GBAFUQQocesCVHzeSEawdy1vO3lyEhFR09V0LWShjShlAo6ZlzomqHi1PaKyh4WGItO2i5fgto4BTUVjuJSLMrCG5XvvdCuweC0Z27UuOi2sQ3MrixIt~IjOclacuq3AYAiVegHNcuRLBQZs78DFN36QiMihhRvCPM3VTHw0V-4i68vA06kxn0H7AUuFQ__)', height:"25px" }}
+                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/bg.png)', height:"25px" }}
                         >
                             Try
                         </Button>
