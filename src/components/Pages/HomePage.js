@@ -15,7 +15,7 @@ import SecureLS from 'secure-ls';
 import ReactPlayer from 'react-player';
 import { TextField } from '@mui/material';
 import { connect } from 'react-redux';
-import { Home } from '@mui/icons-material';
+import { Home, Password } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import { addLogin } from './store';
 import Navbar from './Navbar';
@@ -47,7 +47,6 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
         }
       }, [navigate]); 
       const handleForceRerender = () => {
-        // Increment the video key to force a re-render
         setVideoKey(prevKey => prevKey + 1);
     };
 
@@ -56,6 +55,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
             position: 'top-center'
         });
     };
+        
 
     return (
         <>
@@ -90,7 +90,6 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
                             Try
                         </Button>
                         </Typography>
-                       
                     </div>
                 )}
             <ToastContainer position="top-center" autoClose={5000} />
