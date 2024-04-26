@@ -80,7 +80,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
         <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginTop: "150px", marginBottom: "50px" }}>
             <img
             onClick={() => navigate('/')}
-                src="/assets/bg.png"
+                src="/assets/Bg.png"
                 alt="EffiGO Logo"
                 style={{ width: 100, height: 'auto', cursor: 'pointer' }}
             />
@@ -98,7 +98,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 return (
     <>
         <Box sx={{ display: 'flex' }}>
-            <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/bg.png)' }}>
+            <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)' }}>
                     <Toolbar>
                         {isSmallScreen && (
                             <IconButton

@@ -85,7 +85,7 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
                             <Button
                             onClick={handleButtonClick}
                             variant="contained"
-                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/bg.png)', height:"25px" }}
+                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height:"25px" }}
                         >
                             Try
                         </Button>
