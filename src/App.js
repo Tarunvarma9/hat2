@@ -21,6 +21,7 @@ function App() {
   if (!isAuthenticatedChecked) {
     return null; 
   }
+  console.log('ok')
 
   return (
       <Router>
