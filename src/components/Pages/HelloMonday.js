@@ -30,7 +30,7 @@ function HelloMonday() {
     // Define state variables using useState
     const [mobileOpen, setMobileOpen] = useState(false);
     const [animationActive, setAnimationActive] = useState(false);
-    
+
     // Define your navigate function using useNavigate
     const navigate = useNavigate();
 
@@ -96,16 +96,16 @@ function HelloMonday() {
 
     return (
         <>
-            <Navbar/>
-            
+            <Navbar />
+
             {/* <Button style={{ color: "#000", fontSize: "12px", border: "1px solid #ccc" }} onClick={() => setAnimationActive(!animationActive)}>
                 {animationActive ? "Pause Animation" : "Play Animation"}
             </Button> */}
             <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 {/* <animated.div className="animation-box" style={animationProps}> */}
-                    <video autoPlay muted loop style={{ width: '100%', height: '80vh' }}>
-                        <source src={videoUrl} type="video/mp4" />
-                    </video>
+                <video autoPlay muted loop style={{ width: '100%', height: '80vh' }}>
+                    <source src={videoUrl} type="video/mp4" />
+                </video>
                 {/* </animated.div> */}
             </div>
         </>

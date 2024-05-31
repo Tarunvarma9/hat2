@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const navItems = ['Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
- function HomePage() {
+function HomePage() {
     const navigate = useNavigate();
     const email = ls.get('email');
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -37,16 +37,16 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const [login,setLogin]= React.useState(false)
+    const [login, setLogin] = React.useState(false)
     const [videoKey, setVideoKey] = useState(0);
 
     useEffect(() => {
         const isAuthenticated = ls.get('authenticated');
         if (!isAuthenticated) {
-          navigate("/login");
+            navigate("/login");
         }
-      }, [navigate]); 
-      const handleForceRerender = () => {
+    }, [navigate]);
+    const handleForceRerender = () => {
         setVideoKey(prevKey => prevKey + 1);
     };
 
@@ -55,43 +55,44 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
             position: 'top-center'
         });
     };
-        
+
 
     return (
         <>
-        <Navbar/>
-                {email === "hat2" ?(<> 
-                
-                <div style={{background:"#000"}}>
-                <Button style={{color:"#fff", fontSize:"12px", border:"1px solid #ccc"}} onClick={handleForceRerender} >
-                Force Re-render
-            </Button>
+            <Navbar />
+            {email === "hat2" ? (<>
+
+                <div style={{ background: "#000" }}>
+                    <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={handleForceRerender} >
+                        Force Re-render
+                    </Button>
                     <ReactPlayer
-                    url="/assets/sunflower.mp4"
-                    key={videoKey}
-                    controls={true}
-                    playing={true}
-                    loop={true}
-                    width="100%"
-                    height="80vh"
-                    style={{ marginTop: "3%" }}
-                /></div></>): (
-                    <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "100%", border: "10px solid blue" }}>
-                        <Typography variant="body1" gutterBottom style={{ textAlign: 'center' }}>
-                            ERR CODE- NA + Type: Permission ++ * Home Page * :<br />
-                            User- <b style={{ marginTop: "20px", fontFamily: "Poppins", color: "royalblue" }}>{`"${email}"`}</b>
-                            <br/>
-                            <br/>
-                            <Button
+                        url="/assets/sunflower.mp4"
+                        key={videoKey}
+                        controls={true}
+                        playing={true}
+                        loop={true}
+                        width="100%"
+                        height="80vh"
+                        style={{ marginTop: "3%" }}
+                    /></div>
+            </>) : (
+                <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "100%", border: "10px solid blue" }}>
+                    <Typography variant="body1" gutterBottom style={{ textAlign: 'center' }}>
+                        * Home Page * :<br />
+                        User- <b style={{ marginTop: "20px", fontFamily: "Poppins", color: "royalblue" }}>{`"${email}"`}</b>
+                        <br />
+                        <br />
+                        <Button
                             onClick={handleButtonClick}
                             variant="contained"
-                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height:"25px" }}
+                            sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height: "25px" }}
                         >
                             Try
                         </Button>
-                        </Typography>
-                    </div>
-                )}
+                    </Typography>
+                </div>
+            )}
             <ToastContainer position="top-center" autoClose={5000} />
         </>
     );

@@ -1,4 +1,4 @@
-import  React,{useState} from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,10 +14,10 @@ import SecureLS from 'secure-ls';
 import ReactPlayer from 'react-player';
 import { TextField } from '@mui/material';
 
-const navItems = ['Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
+const navItems = ['Message', 'Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
- function Navbar() {
+function Navbar() {
     const navigate = useNavigate()
     const email = ls.get('email');
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -31,6 +31,8 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
     const getClickHandler = (item) => {
         switch (item) {
+            case 'Message':
+                return () => Navigate('/Message');
             case 'Hello Monday':
                 return () => Navigate('/hellomonday');
             case 'Prometheus Fuels':
@@ -50,28 +52,28 @@ const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height: "100% !important" }}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginTop: "150px", marginBottom: "50px" }}>
-            <img
-            onClick={() => navigate('/')}
-            src="/assets/logo.png"
-                alt="EffiGO Logo"
-                style={{ width: 100, height: 'auto', cursor: 'pointer' }}
-            />
-        </Typography>
-        {navItems.map((item) => (
-            <Button key={item} sx={{ width: '100%', color: "#ccc" }} onClick={getClickHandler(item)}>
-                {item}
-            </Button>
-        ))}
-    </Box>
-);
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginTop: "150px", marginBottom: "50px" }}>
+                <img
+                    onClick={() => navigate('/')}
+                    src="/assets/logo.png"
+                    alt="EffiGO Logo"
+                    style={{ width: 100, height: 'auto', cursor: 'pointer' }}
+                />
+            </Typography>
+            {navItems.map((item) => (
+                <Button key={item} sx={{ width: '100%', color: "#ccc" }} onClick={getClickHandler(item)}>
+                    {item}
+                </Button>
+            ))}
+        </Box>
+    );
 
 
 
-return (
-    <>
-        <Box sx={{ display: 'flex' }}>
-            <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)' }}>
+    return (
+        <>
+            <Box sx={{ display: 'flex' }}>
+                <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)' }}>
                     <Toolbar>
                         {isSmallScreen && (
                             <IconButton
@@ -86,7 +88,7 @@ return (
                         )}
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             <img
-                            onClick={() => navigate('/')}
+                                onClick={() => navigate('/')}
                                 src="/assets/logo.png"
                                 alt="EffiGO Logo"
                                 style={{ width: 100, height: 'auto', cursor: 'pointer' }}

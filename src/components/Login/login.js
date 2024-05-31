@@ -155,7 +155,7 @@ const LoginPage = () => {
           >
             Automate. Transform. Evolve procurement to bring business progress with transparency, savings, and overall efficiency. Let's realize this with our end-to-end technology solution and in-depth functional expertise in today's procurement process
           </Typography>
-        <form onSubmit={handleSubmit} style={{ width: '100%', marginTop: '20px', zIndex: 1 }}> {/* Added zIndex for form overlay */}
+        <form onSubmit={handleSubmit} style={{ width: '500px', marginTop: '20px', zIndex: 1 }}> {/* Added zIndex for form overlay */}
           <OutlinedInput
             id="email"
             placeholder="Email address"

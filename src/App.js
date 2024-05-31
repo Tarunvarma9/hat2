@@ -7,6 +7,7 @@ import HelloMonday from './components/Pages/HelloMonday';
 import Prometheus from './components/Pages/prometheus';
 import Redwood from './components/Pages/redwood';
 import { useState } from 'react';
+import Message from './components/Pages/Message';
 
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
@@ -19,20 +20,21 @@ function App() {
   }, []);
 
   if (!isAuthenticatedChecked) {
-    return null; 
+    return null;
   }
   console.log('ok')
 
   return (
-      <Router>
-        <Routes>
-          <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
-          <Route path="/" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
-          <Route path="/hellomonday" element={isAuthenticated ? <HelloMonday /> : <Navigate to="/login" />} />
-          <Route path="/prometheus" element={isAuthenticated ? <Prometheus /> : <Navigate to="/login" />} />
-          <Route path="/redwood" element={isAuthenticated ? <Redwood /> : <Navigate to="/login" />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
+        <Route path="/" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
+        <Route path="/Message" element={isAuthenticated ? <Message /> : <Navigate to="/login" />} />
+        <Route path="/hellomonday" element={isAuthenticated ? <HelloMonday /> : <Navigate to="/login" />} />
+        <Route path="/prometheus" element={isAuthenticated ? <Prometheus /> : <Navigate to="/login" />} />
+        <Route path="/redwood" element={isAuthenticated ? <Redwood /> : <Navigate to="/login" />} />
+      </Routes>
+    </Router>
   );
 }
 
