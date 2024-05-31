@@ -39,3 +39,16 @@
     padding: 16.5px 14px 16.5px 0px;
     padding-left: 10px !important;
 }
+
+.login-form {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    z-index: 1;
+  }
+  
+  @media (max-width: 600px) {
+    .login-form {
+      width: 90%;
+    }
+  }
