@@ -56,7 +56,7 @@ const LoginPage = () => {
     const enteredPassword2 = 'hat2';
     const isValidCredentials =
       (email.toLocaleLowerCase() === username1 || email.toLocaleLowerCase() === username2) &&
-      (password === enteredPassword1 || password === enteredPassword2);
+      (password.toLocaleLowerCase() === enteredPassword1 || password.toLocaleLowerCase() === enteredPassword2);
     if (isValidCredentials) {
       dispatch(loginUser());
       dispatch(addLogin(email.toLocaleLowerCase()));
@@ -155,7 +155,7 @@ const LoginPage = () => {
           >
             Automate. Transform. Evolve procurement to bring business progress with transparency, savings, and overall efficiency. Let's realize this with our end-to-end technology solution and in-depth functional expertise in today's procurement process
           </Typography>
-        <form onSubmit={handleSubmit} style={{ width: '500px', marginTop: '20px', zIndex: 1 }}> {/* Added zIndex for form overlay */}
+        <form className='login-form' onSubmit={handleSubmit}> {/* Added zIndex for form overlay */}
           <OutlinedInput
             id="email"
             placeholder="Email address"

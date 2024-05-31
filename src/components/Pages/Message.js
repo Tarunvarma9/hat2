@@ -44,7 +44,7 @@ function Message() {
         <>
             <Navbar />
             {email === 'hat2' ? (<>
-                <div style={{ height: "90vh" }}>
+                <div style={{ height: "90vh", width:'100%' }}>
                     <iframe src='https://proposeme.netlify.app/Harshitha' width={'100%'} height={'100%'} />
                 </div>
             </>) : (<>
