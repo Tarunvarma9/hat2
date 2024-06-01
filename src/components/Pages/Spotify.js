@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
-function Message() {
+function Spotify() {
 
     const navigate = useNavigate();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -39,13 +39,37 @@ function Message() {
         });
     };
 
+    const handleSpotifyButton1Click = () => {
+        window.location.href = 'https://ts4h.vercel.app/';
+      };
+
+      const handleSpotifyButton2Click = () => {
+        window.location.href = 'https://newts4h.vercel.app/';
+      };  
+
 
     return (
         <>
             <Navbar />
             {email === 'hat2' ? (<>
-                <div style={{ height: "90vh", width:'100%' }}>
-                    <iframe src='https://proposeme.netlify.app/Harshitha' width={'100%'} height={'100%'} />
+                <div style={{ height: "90vh", width:'100%', display:'flex', alignItems:"center", justifyContent:'center', gap:'1rem' }}>
+                <Button
+                    onClick={handleSpotifyButton1Click}
+                    variant="contained"
+                    sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height: "25px" }}
+                >
+                     Spotify App V1
+                </Button>
+            
+                
+                <Button
+                    onClick={handleSpotifyButton2Click}
+                    variant="contained"
+                    sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height: "25px" }}
+                >
+                   Spotify App V2
+                </Button>
+                    {/* <iframe src='https://tspotify4hat.vercel.app/' width={'100%'} height={'100%'} /> */}
                 </div>
             </>) : (<>
                 {/* <Button
@@ -62,4 +86,4 @@ function Message() {
     );
 };
 
-export default Message
+export default Spotify

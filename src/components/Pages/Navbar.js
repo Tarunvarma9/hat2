@@ -14,7 +14,7 @@ import SecureLS from 'secure-ls';
 import ReactPlayer from 'react-player';
 import { TextField } from '@mui/material';
 
-const navItems = ['Message', 'Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
+const navItems = ['Message', 'Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Spotify', 'Log Out'];
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
 function Navbar() {
@@ -39,6 +39,8 @@ function Navbar() {
                 return () => Navigate('/prometheus');
             case 'Redwood Empire':
                 return () => Navigate('/redwood');
+            case 'Spotify':
+                return () => Navigate('/spotify');
             case 'Log Out':
                 return () => {
                     ls.remove('authenticated');
@@ -53,12 +55,19 @@ function Navbar() {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)', height: "100% !important" }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginTop: "150px", marginBottom: "50px" }}>
-                <img
+                {email === 'hat2' ? (
+                    <img
+                        onClick={() => navigate('/')}
+                        src="/assets/Image.jpg"
+                        alt="my Logo"
+                        style={{ width: 100, height: 'auto', cursor: 'pointer' }}
+                    />
+                ) : (<img
                     onClick={() => navigate('/')}
                     src="/assets/logo.png"
                     alt="EffiGO Logo"
                     style={{ width: 100, height: 'auto', cursor: 'pointer' }}
-                />
+                />)}
             </Typography>
             {navItems.map((item) => (
                 <Button key={item} sx={{ width: '100%', color: "#ccc" }} onClick={getClickHandler(item)}>
@@ -73,7 +82,7 @@ function Navbar() {
     return (
         <>
             <Box sx={{ display: 'flex' }}>
-                <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)' }}>
+                <AppBar position="static" sx={{backgroundImage: 'linear-gradient(64.3deg, #001225 6.75%, rgba(0, 13, 27, 0.95) 20.87%, rgba(1, 13, 27, 0.9) 36.96%, rgba(4, 19, 35, 0.83) 52.99%, rgba(0, 0, 0, 0) 91.8%), url(/assets/Bg.png)' }}>
                     <Toolbar>
                         {isSmallScreen && (
                             <IconButton
@@ -87,12 +96,19 @@ function Navbar() {
                             </IconButton>
                         )}
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            <img
+                            {email === 'hat2' ? (
+                                <img
+                                    onClick={() => navigate('/')}
+                                    src="/assets/Image.jpg"
+                                    alt="my Logo"
+                                    style={{ width: '45px', height: '45px', cursor: 'pointer' }}
+                                />
+                            ) : (<img
                                 onClick={() => navigate('/')}
                                 src="/assets/logo.png"
                                 alt="EffiGO Logo"
-                                style={{ width: 100, height: 'auto', cursor: 'pointer' }}
-                            />
+                                style={{ width: 100, height: '25px', cursor: 'pointer' }}
+                            />)}
                         </Typography>
                         {!isSmallScreen && (
                             <Box sx={{ display: 'flex', gap: 2 }}>
