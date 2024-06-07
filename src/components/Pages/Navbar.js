@@ -60,7 +60,7 @@ function Navbar() {
                         onClick={() => navigate('/')}
                         src="/assets/Image.jpg"
                         alt="my Logo"
-                        style={{ width: 100, height: 'auto', cursor: 'pointer' }}
+                        style={{ width: 100, height: 'auto', cursor: 'pointer', borderRadius:'50%' }}
                     />
                 ) : (<img
                     onClick={() => navigate('/')}
@@ -101,7 +101,7 @@ function Navbar() {
                                     onClick={() => navigate('/')}
                                     src="/assets/Image.jpg"
                                     alt="my Logo"
-                                    style={{ width: '45px', height: '45px', cursor: 'pointer' }}
+                                    style={{ width: '45px', height: '45px', cursor: 'pointer',borderRadius:'50%' }}
                                 />
                             ) : (<img
                                 onClick={() => navigate('/')}

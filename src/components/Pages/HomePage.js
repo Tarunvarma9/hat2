@@ -21,6 +21,7 @@ import { addLogin } from './store';
 import Navbar from './Navbar';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { GiBrokenHeartZone } from "react-icons/gi";
 
 
 const navItems = ['Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Log Out'];
@@ -39,6 +40,8 @@ function HomePage() {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const [login, setLogin] = React.useState(false)
     const [videoKey, setVideoKey] = useState(0);
+    const [brokeVideoKey,setBrokeVideoKey]= useState(0);
+    const [broke,setBroke] = useState(false);
 
     useEffect(() => {
         const isAuthenticated = ls.get('authenticated');
@@ -50,6 +53,13 @@ function HomePage() {
         setVideoKey(prevKey => prevKey + 1);
     };
 
+    const handleBrokeForceRerender = () => {
+        setBrokeVideoKey(prevKey => prevKey + 1);
+    };
+
+    const OnclickChange=()=>{
+     setBroke(true);
+    }
     const handleButtonClick = () => {
         toast.success('Try username/password === "hat2"', {
             position: 'top-center'
@@ -62,20 +72,39 @@ function HomePage() {
             <Navbar />
             {email === "hat2" ? (<>
 
+                {broke ? (
                 <div style={{ background: "#000" }}>
-                    <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={handleForceRerender} >
-                        Force Re-render
-                    </Button>
-                    <ReactPlayer
-                        url="/assets/sunflower.mp4"
-                        key={videoKey}
-                        controls={true}
-                        playing={true}
-                        loop={true}
-                        width="100%"
-                        height="80vh"
-                        style={{ marginTop: "3%" }}
-                    /></div>
+                <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={handleForceRerender} >
+                    Force Re-render
+                </Button>
+                <ReactPlayer
+                    url="/assets/eternal.mp4"
+                    key={brokeVideoKey}
+                    controls={true}
+                    playing={true}
+                    loop={true}
+                    width="100%"
+                    height="80vh"
+                    style={{ marginTop: "3%" }}
+                /></div>
+                ) :(<div style={{ background: "#000" }}>
+                <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={handleForceRerender} >
+                    Force Re-render
+                </Button>
+                &nbsp; 
+                <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={OnclickChange} >
+                <GiBrokenHeartZone style={{color:"red", fontSize:'20px'}} />
+                </Button>
+                <ReactPlayer
+                    url="/assets/sunflower.mp4"
+                    key={videoKey}
+                    controls={true}
+                    playing={true}
+                    loop={true}
+                    width="100%"
+                    height="80vh"
+                    style={{ marginTop: "3%" }}
+                /></div>)}
             </>) : (
                 <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "100%", border: "10px solid blue" }}>
                     <Typography variant="body1" gutterBottom style={{ textAlign: 'center' }}>
