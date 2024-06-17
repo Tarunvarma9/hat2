@@ -72,31 +72,16 @@ function HomePage() {
             <Navbar />
             {email === "hat2" ? (<>
 
-                {broke ? (
-                <div style={{ background: "#000" }}>
-                <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={handleForceRerender} >
-                    Force Re-render
-                </Button>
-                <ReactPlayer
-                    url="/assets/eternal.mp4"
-                    key={brokeVideoKey}
-                    controls={true}
-                    playing={true}
-                    loop={true}
-                    width="100%"
-                    height="80vh"
-                    style={{ marginTop: "3%" }}
-                /></div>
-                ) :(<div style={{ background: "#000" }}>
+              <div style={{ background: "#000", height:"100%" }}>
                 <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={handleForceRerender} >
                     Force Re-render
                 </Button>
                 &nbsp; 
-                <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={OnclickChange} >
+                {/* <Button style={{ color: "#fff", fontSize: "12px", border: "1px solid #ccc" }} onClick={OnclickChange} >
                 <GiBrokenHeartZone style={{color:"red", fontSize:'20px'}} />
-                </Button>
+                </Button> */}
                 <ReactPlayer
-                    url="/assets/sunflower.mp4"
+                    url="/assets/h.mp4"
                     key={videoKey}
                     controls={true}
                     playing={true}
@@ -104,7 +89,7 @@ function HomePage() {
                     width="100%"
                     height="80vh"
                     style={{ marginTop: "3%" }}
-                /></div>)}
+                /></div>
             </>) : (
                 <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "100%", border: "10px solid blue" }}>
                     <Typography variant="body1" gutterBottom style={{ textAlign: 'center' }}>
