@@ -14,7 +14,7 @@ import SecureLS from 'secure-ls';
 import ReactPlayer from 'react-player';
 import { TextField } from '@mui/material';
 
-const navItems = ['Message', 'Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Spotify', 'Log Out'];
+const navItems = ['Message', 'Hello Monday', 'Prometheus Fuels', 'Redwood Empire', 'Beach House','Spotify', 'Log Out'];
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
 function Navbar() {
@@ -39,6 +39,9 @@ function Navbar() {
                 return () => Navigate('/prometheus');
             case 'Redwood Empire':
                 return () => Navigate('/redwood');
+            case 'Beach House':
+                    return () => Navigate('/beachhouse');                
+
             case 'Spotify':
                 return () => Navigate('/spotify');
             case 'Log Out':

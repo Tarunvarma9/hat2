@@ -9,6 +9,7 @@ import Redwood from './components/Pages/redwood';
 import { useState } from 'react';
 import Message from './components/Pages/Message';
 import Spotify from './components/Pages/Spotify';
+import BeachHouse from './components/Pages/BeachHouse';
 
 const ls = new SecureLS({ encodingType: 'aes', isCompression: false });
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/hellomonday" element={isAuthenticated ? <HelloMonday /> : <Navigate to="/login" />} />
         <Route path="/prometheus" element={isAuthenticated ? <Prometheus /> : <Navigate to="/login" />} />
         <Route path="/redwood" element={isAuthenticated ? <Redwood /> : <Navigate to="/login" />} />
+        <Route path="/beachhouse" element={isAuthenticated ? <BeachHouse /> : <Navigate to="/login" />}/>
         <Route path="/spotify" element={isAuthenticated ? <Spotify /> : <Navigate to="/login" />}/>
       </Routes>
     </Router>
