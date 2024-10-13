@@ -76,19 +76,37 @@ function HomePage() {
                     variant="h1"
                     sx={{
                         opacity: 0.1,
-                        fontSize: '5rem',
+                        fontSize: {
+                            xs: '2rem', // small screen
+                            sm: '3rem', // medium screen
+                            md: '4rem', // large screen
+                            lg: '5rem', // extra-large screen
+                        },
                         color: '#cbb2ff',
                         fontFamily: 'cursive',
                         zIndex: 1000,
+                        fontWeight:800,
                         textAlign: 'center',
                         transition: 'color 0.3s', // Add smooth transition for hover effect
                         '&:hover': {
-                            color: '#ff009e', // Color change on hover
-                        }
+                            color: '#ff009e', // Color change on hover for whole text
+                        },
+                        '& span': {
+                            color: '#cbb2ff', // Initial color for the highlighted text
+                            fontWeight: 'bold',
+                            textShadow: '2px 2px 5px rgba(0,0,0,0.3)',
+                            transition: 'color 0.3s, transform 0.3s', // Smooth transition for hover effects
+                        },
+                        '& span:hover': {
+                            color: '#ff009e', // Hover color change for span
+                            transform: 'scale(1.1)', // Slight zoom-in effect on hover
+                        },
                     }}
                 >
-                  HARSHITHA,  Watashi wa anata o eien ni aishiteimasu 
+                    HARSHITHA, Watashi wa anata o eien ni aishiteimasu
                 </Typography>
+
+
             </Box>
         </>
     );
